@@ -1,0 +1,27 @@
+{
+  "name": "game_of_life",
+  "version": "1.0.0",
+  "description": "Blockchain-based game using Hardhat",
+  "main": "app.js",
+  "scripts": {
+    "test": "npx hardhat test",
+    "deploy:local": "npx hardhat run scripts/deploy.js --network localhost",
+    "node": "npx hardhat node"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vipbondre/game_of_life.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vipbondre/game_of_life/issues"
+  },
+  "homepage": "https://github.com/vipbondre/game_of_life#readme",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^5.0.0",
+    "dotenv": "^16.5.0",
+    "hardhat": "^2.24.0"
+  }
+}

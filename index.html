@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Golden Balls Dilemma</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1>🕵️ Trust in the Shadow 💰</h1>
+    <p style="color:#888; font-style: italic; margin-bottom: 20px;">
+        Will you betray or build trust in the dark?
+    </p>
+
+    <!-- Rules Popup Section -->
+    <div class="rules-container">
+        <button class="toggle-rules" onclick="toggleRules()">📜 Game Rules ⬇️</button>
+        <div id="rules-content" class="rules-content">
+        <ul>
+            <li>🤝 <strong>Both Share</strong>: 3 points each</li>
+            <li>💸 <strong>One Steals</strong>: Stealer gets 5, Sharer gets 0</li>
+            <li>⚔️ <strong>Both Steal</strong>: 1 point each</li>
+            <li>🎮 <strong>10 Rounds</strong>: Target Score achieved !!!</li>
+        </ul>
+        </div>
+    </div>
+
+    <!-- New Buttons for Connect Wallet and Play as Guest
+    <div class="connect-options">
+        <button class="connect-btn">🔗 Connect Wallet</button>
+        <button class="guest-btn">👤 Play as Guest</button>
+    </div> -->
+    <!-- Profile Section -->
+    <div class="profile-container">
+        <button class="toggle-profile" onclick="toggleProfileDetails()">
+        <div class="profile-summary" id="profileSummary">
+            <img src="images/profile.png" alt="Profile Pic" class="profile-pic">
+            <span class="username" id="unameSummary">UNKNOWN</span>
+            <span class="rating" id="ratingSummary">⭐ </span>
+            <span class="wallet" id="walletSummary">💰 </span>
+        </div>
+        </button>
+        <div class="profile-details" id="profileDetails">
+            <div class="dashboard-row">
+              <div class="dashboard-item">
+                <h4>👤 Username</h4>
+                <p>---</p>
+              </div>
+              <div class="dashboard-item">
+                <h4>⭐ Ratings</h4>
+                <p>---</p>
+              </div>
+              <div class="dashboard-item">
+                <h4>🎮 Games</h4>
+                <p>---</p>
+              </div>
+              <div class="dashboard-item">
+                <h4>💼 Wallet</h4>
+                <p>---</p>
+              </div>
+              <div class="dashboard-item">
+                <h4>💰 Balance</h4>
+                <p id="walletBalance">---</p>
+              </div>
+              <div class="dashboard-item">
+                <h4>🤑 Bet</h4>
+                <p id="betPlaced">---</p>
+              </div>
+            </div>
+            <div class="profile-buttons">
+              <button onclick="loginWithMetaMask()" class="login-btn" id="loginBtn">Login</button>
+              <button onclick="showSignupField()" class="login-btn" id="signupBtn">Signup</button>
+
+              <div id="signupInput" style="display:none; margin-top:10px;">
+                <input type="text" id="usernameInput" class="styled-input" placeholder="Enter username" />
+                <button onclick="signupWithMetaMask()" class="login-btn" >Submit</button>
+              </div>
+            
+              <button onclick="showBetInput()" class="bet-btn" id="betBtn" style="display:none;">Bet</button>
+              <div id="betInput" style="display:none; margin-top:10px;">
+                <input type="number" id="betAmount" class="styled-input" placeholder="Enter ETH amount" />
+                <button onclick="placeBet()" class="login-btn">Submit Bet</button>
+              </div>
+            
+              <div id="userProfile"></div>
+              <button onclick="logoutWallet()" class="logout-btn" id="logoutBtn" style="display:none;">🚪 Logout</button>
+            </div>            
+        </div>          
+    </div>
+  
+
+    <!-- Start Game Button -->
+    <button onclick="startGame()" class="connect-btn">Start Game</button>
+
+    <!-- Game Section -->
+    <div id="game" style="display: none;">
+      <p>Round: <span id="roundNumber">1</span> / 10</p>
+      <div class="score-row">
+        <div class="score-box">🙋‍♂️ You: <strong id="playerScore">0</strong></div>
+        <div class="score-box">🤖 Bot: <strong id="opponentScore">0</strong></div>
+        <div class="score-box">🎖️ Target: <strong id="targetScore">0</strong></div>
+      </div>      
+      <div class="buttons">
+        <button class="share-btn" onclick="makeChoice('share')">🤝 Share</button>
+        <button class="steal-btn" onclick="makeChoice('steal')">💸 Steal</button>
+      </div>
+    </div>
+
+    <!-- Result Section -->
+    <div id="result" class="result-box"> </div>
+
+    <!-- Last 10 Rounds Section (Horizontal) -->
+    <h2>🕓 Previous Rounds</h2>
+    <div id="historyList" class="history"></div> <!-- Changed to div for horizontal display -->
+
+    <!-- Restart Button -->
+    <div class="restart-container">
+        <button id="restartBtn" class="connect-btn" style="display: none;" onclick="startGame()">🔄 Start Over</button>
+    </div>
+  
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
