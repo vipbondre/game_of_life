@@ -209,7 +209,7 @@ const contractABI = [
   }
 ];
 
-const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
+const contractAddress = "0x9A6cb4d5e5643cc7BDFd1c62a70576B31321F494";
 
 let provider, signer, contract;
 
@@ -221,7 +221,7 @@ let targetScore = 22;
 let currentRound = 1;
 const maxRounds = 10;
 
-currentUser = {
+let currentUser = {
   username: "UNKNOWN",
   rating: "N/A",
   gamesPlayed: "N/A",
@@ -527,6 +527,9 @@ async function loginWithMetaMask(username) {
       // Now read user info from the contract
       const userAddress = await signer.getAddress();
       const user = await contract.getUser(userAddress);
+      console.log("provider: ", provider);
+      console.log("signer: ", signer);
+      console.log("contract: ", contract);
 
       currentUser.username = user[0];
       currentUser.rating = user[1]; // rating
