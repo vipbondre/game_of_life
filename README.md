@@ -2,6 +2,8 @@
 
 A decentralized web game built on Ethereum where players engage in a game-theory-based "Prisoner's Dilemma" with a bot. The game combines blockchain immutability, smart contract betting logic, and a sleek frontend interface.
 
+- Game link: https://shareorsteal.vercel.app/
+- Demo video link: https://drive.google.com/drive/folders/1QlmMBDkgUsh9Z7oyeL4XuuofIFadXaWi?usp=sharing
 ---
 
 ## 📌 Table of Contents
@@ -14,7 +16,7 @@ A decentralized web game built on Ethereum where players engage in a game-theory
 
 ## 🎮 Play Online (Deployed Version)
 
-> 🔗 **Frontend (Vercel):** [https://your-vercel-url.vercel.app](https://shareorsteal.vercel.app/)  
+> 🔗 **Frontend (Vercel):** [https://shareorsteal.vercel.app](https://shareorsteal.vercel.app/)  
 > 🔐 **Smart Contract (Sepolia Testnet):** Deployed and connected to frontend.
 
 ### How to Play:
