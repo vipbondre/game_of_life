@@ -669,7 +669,7 @@ async function getWalletBalance() {
       const chainId = await window.ethereum.request({ method: 'eth_chainId' });
       if (chainId !== '0xaa36a7') { // Sepolia chain ID
         alert('Please switch to the Sepolia Test Network in MetaMask.');
-        //return;
+        return;
       }
 
       const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
