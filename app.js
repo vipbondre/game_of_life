@@ -217,7 +217,7 @@ let history = [];
 let previousChoices = [];
 let playerScore = 0;
 let opponentScore = 0;
-let targetScore = 22;
+let targetScore = 32;
 let currentRound = 1;
 const maxRounds = 10;
 
@@ -236,7 +236,7 @@ function startGame() {
   playerScore = 0;
   opponentScore = 0;
   currentRound = 1;
-  targetScore = 22;
+  targetScore = 32;
 
   // Show/hide UI
   document.getElementById("targetScore").innerText = targetScore;
