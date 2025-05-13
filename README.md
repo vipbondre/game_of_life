@@ -6,9 +6,9 @@ A decentralized web game built on Ethereum where players engage in a game-theory
 
 ## 📌 Table of Contents
 
-1. [🎮 Play Online (Deployed Version)](#-play-online-deployed-version)
-2. [🛠️ Run Locally (Frontend + Deployed Smart Contract)](#️-run-locally-frontend--deployed-smart-contract)
-3. [⚙️ Advanced Dev Setup](#️-advanced-dev-setup) ← Coming soon...
+1. [🎮 Play Online (Deployed Version)](#play-online-deployed-version)
+2. [🛠️ Run Locally (Frontend + Deployed Smart Contract)](#run-locally-frontend--deployed-smart-contract)
+3. [⚙️ Total dApp Local Setup](#total-dapp-local-setup)
 
 ---
 
@@ -36,26 +36,64 @@ A decentralized web game built on Ethereum where players engage in a game-theory
 - MetaMask installed and set to **Sepolia Testnet**
 - Some **Sepolia ETH** (Get from a [faucet](https://sepoliafaucet.com/))
 - 🔐 **Note: You must be logged in with MetaMask to play the game.**
+
 ---
 
-## 🛠️ Run Locally (Frontend + Deployed Smart Contract)
+## 🔧 Run Frontend Locally & Connect to Deployed Smart Contract (Sepolia)
 
-### 🧾 Prerequisites
+This section helps you host the frontend locally and interact with the smart contract already deployed on the **Sepolia Testnet**.
 
-- Node.js (v16+)
-- Git
-- MetaMask (connected to Sepolia)
-- Sepolia ETH for transactions
+### 🚀 Prerequisites
 
-### 🔧 Setup Instructions
+- ✅ Node.js & npm installed
+- ✅ MetaMask wallet connected to Sepolia Testnet
+- ✅ ETH in your wallet from [Sepolia Faucet](https://sepoliafaucet.com)
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/yourrepo.git
-cd yourrepo
+### 🛠️ Steps to Run Locally (Frontend + Deployed Smart Contract)
 
-# Install dependencies
-npm install
+1. **Clone the Repository**
 
-# Run the frontend (using Live Server or any HTTP server)
-# OR open index.html manually in browser
+   ```bash
+   git clone https://github.com/vipbondre/game_of_life.git
+   cd game_of_life
+
+2. **Install Dependencies**
+
+   Make sure you're in the project directory:
+
+   ```bash
+   npm install
+
+3. **Start the Frontend**
+
+   Use any of the following methods to serve your frontend locally:
+
+   - 🧪 **Option 1 (Recommended)**: Use VS Code Live Server  
+     Right-click on `index.html` → `Open with Live Server`
+
+   - 🧪 **Option 2**: Use live-server from terminal  
+     (If not installed, first run: `npm install -g live-server`)
+
+     ```bash
+     npx live-server
+     ```
+
+5. **Interact with the DApp**
+
+   - Connect MetaMask (ensure you're on the **Sepolia** test network).
+   - Play the game: Sign up, place a bet, and start the challenge 🎯.
+
+> ⚠️ **Note:** You must be logged in via MetaMask to play the game.
+
+---
+
+## ⚙️ Total dApp Local Setup
+
+This section will guide you through setting up **Hardhat** to host the smart contract locally, compiling the contract, deploying it on a local network, and connecting it to your frontend.
+
+### 1. **Install Hardhat and Dependencies**
+
+   First, make sure you have the required dependencies installed for Hardhat and related tools.
+
+   ```bash
+   npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox ethers
