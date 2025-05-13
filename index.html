@@ -6,6 +6,8 @@
   <title>Golden Balls Dilemma</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="app.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.6.0/dist/ethers.umd.min.js"></script>
 </head>
 <body>
   <div class="container">
@@ -22,7 +24,7 @@
             <li>🤝 <strong>Both Share</strong>: 3 points each</li>
             <li>💸 <strong>One Steals</strong>: Stealer gets 5, Sharer gets 0</li>
             <li>⚔️ <strong>Both Steal</strong>: 1 point each</li>
-            <li>🎮 <strong>10 Rounds</strong>: Target Score achieved !!!</li>
+            <li>🎮 <strong>10 Rounds</strong>: Target Score achieved.! Get 2x of your Bet Amount.!! </li>
         </ul>
         </div>
     </div>
@@ -70,7 +72,7 @@
               </div>
             </div>
             <div class="profile-buttons">
-              <button onclick="loginWithMetaMask()" class="login-btn" id="loginBtn">Login</button>
+              <button onclick="login()" class="login-btn" id="loginBtn">Login</button>
               <button onclick="showSignupField()" class="login-btn" id="signupBtn">Signup</button>
 
               <div id="signupInput" style="display:none; margin-top:10px;">
@@ -103,8 +105,8 @@
         <div class="score-box">🎖️ Target: <strong id="targetScore">0</strong></div>
       </div>      
       <div class="buttons">
-        <button class="share-btn" onclick="makeChoice('share')">🤝 Share</button>
-        <button class="steal-btn" onclick="makeChoice('steal')">💸 Steal</button>
+        <button class="share-btn" onclick="makeChoice('Share')">🤝 Share</button>
+        <button class="steal-btn" onclick="makeChoice('Steal')">💸 Steal</button>
       </div>
     </div>
 
@@ -121,7 +123,5 @@
     </div>
   
   </div>
-
-  <script src="app.js"></script>
 </body>
 </html>

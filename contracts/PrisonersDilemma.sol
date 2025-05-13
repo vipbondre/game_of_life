@@ -46,10 +46,12 @@ contract PrisonersDilemma {
         string memory username,
         uint256 rating,
         uint256 gamesPlayed,
-        bool isRegistered
+        uint256 gamesWon,
+        bool isRegistered,
+        uint256 totalBet
     ) {
         User memory user = users[_userAddress];
-        return (user.username, user.rating, user.gamesPlayed, user.isRegistered);
+        return (user.username, user.rating, user.gamesPlayed, user.gamesWon, user.isRegistered, user.totalBet);
     }
 
     // New BET function
@@ -64,17 +66,20 @@ contract PrisonersDilemma {
     function payoutIfWon(bool result, uint256 diffOfPoints) external {
         User storage user = users[msg.sender];
         user.gamesPlayed++;
+        user.rating += diffOfPoints;
 
         if (result) {
             user.gamesWon++;
             user.rating += diffOfPoints;
 
-            require(user.totalBet > 0, "No bet to payout");
-            uint256 payoutAmount = user.totalBet * 2;
-            user.totalBet = 0;
+            if (user.totalBet > 0) {
+                require(user.totalBet > 0, "No bet to payout");
+                uint256 payoutAmount = user.totalBet * 2;
+                user.totalBet = 0;
 
-            require(address(this).balance >= payoutAmount, "Insufficient contract balance");
-            payable(msg.sender).transfer(payoutAmount);
+                require(address(this).balance >= payoutAmount, "Insufficient contract balance");
+                payable(msg.sender).transfer(payoutAmount);
+            }
         } else {
             user.totalBet = 0; // Lost the bet, reset it
         }

@@ -1,15 +1,11 @@
-const hre = require("hardhat");
-
 async function main() {
-  const GameLogic = await hre.ethers.getContractFactory("PrisonersDilemma");
-  const game = await GameLogic.deploy();
-  await game.deployed();
-  console.log("GameLogic deployed to:", game.address);
+  const Game = await ethers.getContractFactory("PrisonersDilemma");
+  const game = await Game.deploy();
+  await game.waitForDeployment();
+  console.log("Contract deployed at:", await game.getAddress());
 }
 
-main()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
