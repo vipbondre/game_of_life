@@ -6,9 +6,9 @@ A decentralized web game built on Ethereum where players engage in a game-theory
 
 ## 📌 Table of Contents
 
-1. [🎮 Play Online (Deployed Version)](#play-online-deployed-version)
-2. [🛠️ Run Locally (Frontend + Deployed Smart Contract)](#run-locally-frontend--deployed-smart-contract)
-3. [⚙️ Total dApp Local Setup](#total-dapp-local-setup)
+1. [🎮 Play Online (Deployed Version)](#-play-online-deployed-version)
+2. [🛠️ Run Locally (Frontend + Deployed Smart Contract)](#-run-frontend-locally--connect-to-deployed-smart-contract-sepolia)
+3. [⚙️ Total dApp Local Setup](#%EF%B8%8F-total-dapp-local-setup)
 
 ---
 
@@ -93,7 +93,69 @@ This section will guide you through setting up **Hardhat** to host the smart con
 
 ### 1. **Install Hardhat and Dependencies**
 
-   First, make sure you have the required dependencies installed for Hardhat and related tools.
+   - First, make sure you have the required dependencies installed for Hardhat and related tools.
 
    ```bash
    npm install --save-dev hardhat @nomicfoundation/hardhat-toolbox ethers
+   ```
+
+### 2. Initialize Hardhat Project
+
+- Run this command and follow the prompts:
+
+```bash
+npx hardhat
+```
+- Choose "Create a JavaScript project"
+- Press Enter for all default options
+
+### 3. Compile the Smart Contract
+
+   ```bash
+   cd contracts
+   npx hardhat compile
+   ```
+### 4. Required Files
+      hardhat.config.js
+      scripts/deploy.js
+      contracts/PrisonersDilemma.sol
+
+### 5. Start Local Hardhat Node
+   - In a new terminal, run:
+   ```bash
+   npx hardhat node
+   ```
+   - This will start a local blockchain on http://127.0.0.1:8545
+   - It also provides you with 20 pre-funded accounts and their private keys.
+
+### 6. Deploy to Localhost Network
+   - In a separate terminal, deploy your contract to the local node:
+
+   ```bash
+   npx hardhat run scripts/deploy.js --network localhost
+   ```
+   - You'll see the deployed contract address in the terminal.
+
+### 7. Update Frontend to Connect with Local Contract
+   - In your JavaScript frontend code:
+   - Use the deployed contract address from step 6
+   - Load the ABI from the generated artifacts/contracts/PrisonersDilemma.sol/PrisonersDilemma.json
+
+### 8. Run Frontend Locally
+   - Use Live Server or npx live-server to host the frontend as usual. 
+   - Make sure MetaMask is set to Localhost 8545 and import one of the test accounts from the Hardhat node using its private key.
+
+### 9. Add Local Network to MetaMask
+   - Open MetaMask, Click the Network dropdown at the top and choose Add Network (or "Add Network Manually").
+   - Fill in the following:
+
+   - New RPC URL	http://127.0.0.1:8545
+   - Chain ID	31337
+   - Currency Symbol	ETH
+
+   - Click Save.
+
+### 10. Setup Complete
+   - You can now run live server and setup metamask account.
+   - Enjoy the game.
+
